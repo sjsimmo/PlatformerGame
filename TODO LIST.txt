@@ -1,0 +1,33 @@
+TODO:
+- version control: investigate git ???
+- general: cleanup code mess. pass const references to objects, use constructors/destructors etc.
+- file manager: finalise/implement new map format
+- file manager: save/load game state
+- graphics: multiple background support
+- graphics: individual texture packs for layers
+- sound effects: is that even a thing?
+- physical layer: add support for things that aren't walls
+- entity: what data could entities need on update?
+- entity: entity-entity interaction/collision detection
+- entity: local/global entity spawn/despawning
+- player: better physics
+- map editor: support for new map format
+- map editor: texture pallete
+- map editor: toggle views
+- map editor: cleanup code mess
+- map editor: add entities to map feature?
+- gameplay: main menu/settings
+- gameplay: game title/storyline?
+- gameplay: bigger map, more entities
+
+Planned Map Format:
+- map width  - int
+- map height - int
+- map layers - byte
+- layer data - byte *width*height*layers
+- backgorund indexing ???
+- texture pack naming ???
+- number of entities ???
+- entity ids ???
+- entity type, x_pos, y_pos - byte, int, int *number of entities
+- entity intial values ???
