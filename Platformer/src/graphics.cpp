@@ -81,11 +81,11 @@ void graphics::load_textures(const map &Map)
     camera = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, camera_width, camera_height);
     SDL_SetTextureBlendMode(camera, SDL_BLENDMODE_BLEND);    
     //Load texture pack
-    SDL_Surface* surface = SDL_LoadBMP("texture_pack.bmp");
+    SDL_Surface* surface = SDL_LoadBMP("assets/texture_pack.bmp");
     texture_pack = SDL_CreateTextureFromSurface(renderer, surface);
     if(texture_pack == NULL)
     {
-        printf("Failed to load texture_pack.bmp. SDL error: %s\n", SDL_GetError());
+        printf("Failed to load assets/texture_pack.bmp. SDL error: %s\n", SDL_GetError());
     }
     SDL_FreeSurface(surface);
     //Create rectangles to point to texture pack locations
@@ -103,11 +103,11 @@ void graphics::load_textures(const map &Map)
         SDL_SetTextureBlendMode(layer_texture[layer], SDL_BLENDMODE_BLEND);        
     }
     //Load entity textures from entity_texture.bmp
-    surface = SDL_LoadBMP("entity_texture.bmp");
+    surface = SDL_LoadBMP("assets/entity_texture.bmp");
     entity_texture = SDL_CreateTextureFromSurface(renderer, surface);
     if(entity_texture == NULL)
     {
-        printf("Failed to load entity_texture.bmp. SDL error: %s\n", SDL_GetError());
+        printf("Failed to load assets/entity_texture.bmp. SDL error: %s\n", SDL_GetError());
     }
     SDL_FreeSurface(surface);
 }
@@ -115,11 +115,11 @@ void graphics::load_textures(const map &Map)
 //Loads background from background.bmp. TODO - add multiple background support
 void graphics::update_background()
 {
-    SDL_Surface* surface = SDL_LoadBMP("background.bmp");
+    SDL_Surface* surface = SDL_LoadBMP("assets/background.bmp");
     background_texture = SDL_CreateTextureFromSurface(renderer, surface);
     if(background_texture == NULL)
     {
-        printf("Failed to load background.bmp. SDL error: %s\n", SDL_GetError());
+        printf("Failed to load assets/background.bmp. SDL error: %s\n", SDL_GetError());
     }
     SDL_FreeSurface(surface);
 }

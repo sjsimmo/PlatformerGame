@@ -24,7 +24,7 @@ struct settings
 //TODO - Make maps dynamic
 struct map
 {
-    const char* file_name = "world.map";
+    const char* file_name = "assets/world.map";
     static const int width = 800;
     static const int height = 338;
     static const int layers = 3;

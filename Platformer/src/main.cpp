@@ -8,6 +8,7 @@
 #include "bob.h"
 
 #include <vector>
+#include <stdio.h> //DEBUG
 
 //Main program
 int main(int argc, char* args[])
@@ -19,15 +20,17 @@ int main(int argc, char* args[])
     time_manager Time_manager; //keeps track of timing and FPS
     events Events; //handles events
     graphics Graphics; //manages windows, graphics resources, and renders everything
-    
+    printf("created objects");
     //Initialise objects and load game
     File_manager.load_settings(Settings);
+    printf("loaded settings");
     File_manager.load_map(Map);
+    printf("loaded map");
     Graphics.init(Settings);
     Graphics.load_textures(Map);
     Graphics.update_background();
     Time_manager.init();
-    
+    printf("intialised objects");
     double physics_timestep = 1.0/240.0;
     double physics_time = 0;
     int old_camera_x_pos = -1;
@@ -37,7 +40,7 @@ int main(int argc, char* args[])
     std::vector<entity*> Entity;
     Entity.push_back(new player);
     Entity[0]->init(50,275);
-
+    printf("entering loop");
     //Main game loop
     while(!Events.quit_pressed)
     {

@@ -1,6 +1,4 @@
 TODO:
-- version control: investigate git ???
-- general: cleanup code mess. pass const references to objects, use constructors/destructors etc.
 - file manager: finalise/implement new map format
 - file manager: save/load game state
 - graphics: multiple background support
