@@ -1,0 +1,20 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "build platformer",
+        "type": "shell",
+        "command": "g++",
+        "args": [ "-g",                                           //enable debug mode
+                  "-o", "platformer", "main.cpp", "graphics.cpp", "entity.cpp", "events.cpp", "time_manager.cpp", "file_manager.cpp", "player.cpp", "bob.cpp", //output and source files
+                  "-I${workspaceFolder}/SDL2-w64/include/SDL2", "-I${workspaceFolder}", //include directories
+                  "-L${workspaceFolder}/SDL2-w64/lib",            //library directories
+                  "-lmingw32", "-lSDL2main", "-lSDL2",            //linked libraries
+                ],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        }
+      }
+    ]
+  }
