@@ -1,3 +1,6 @@
+#SDL2 library
+SDL2-w64/
+
 # Prerequisites
 *.d
 
