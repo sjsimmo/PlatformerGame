@@ -1,5 +1,6 @@
 //Dependencies
 #include "file_manager.h" 
+#include "map.h"
 #include"graphics.h"
 #include "time_manager.h"
 #include "events.h"
@@ -23,7 +24,8 @@ int main(int argc, char* args[])
 
     //Initialise objects and load game
     File_manager.load_settings(Settings);
-    File_manager.load_map(Map);
+    Map.load("assets/world.map");
+    Map.save("assets/world.map");
     Graphics.init(Settings);
     Graphics.load_textures(Map);
     Graphics.update_background();

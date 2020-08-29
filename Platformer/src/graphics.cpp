@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include "entity.h"
 #include "file_manager.h"
+#include "map.h"
 
 //Creates window
 void graphics::init(const settings &Settings)
@@ -137,7 +138,7 @@ void graphics::update_layer(int layer, const map &Map)
     {
         for(int x_pos=camera_x_pos-camera_x_pos%Map.grid_size; x_pos < camera_x_pos+camera_width; x_pos+=Map.grid_size)
         {
-            char map_data = Map.data[layer][y_pos/Map.grid_size][x_pos/Map.grid_size];
+            char map_data = Map.get_data(x_pos/Map.grid_size, y_pos/Map.grid_size, layer);
             if(map_data != 0) //skip if empty space
             {
                 SDL_Rect draw_location = {x_pos-camera_x_pos, y_pos-camera_y_pos, texture_map[map_data].w, texture_map[map_data].h};

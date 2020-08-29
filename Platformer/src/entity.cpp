@@ -1,6 +1,6 @@
 //Physics enabled entities
 #include "entity.h"
-#include "file_manager.h"
+#include "map.h"
 
 void entity::entity_init()
 {
@@ -41,7 +41,7 @@ char entity::entity_wall_collisions(const map &Map, bool collide)
         }
         for(try_y_pos = old_y_pos; try_y_pos<y_pos+height-1 && !(direction&0b1000); try_y_pos+=Map.grid_size)
         {
-            if(Map.data[0][(int)try_y_pos/Map.grid_size][(int)try_x_pos/Map.grid_size]&0b0001)
+            if(Map.get_data((int)try_x_pos/Map.grid_size, (int)try_y_pos/Map.grid_size, 0)&0b0001)
             {
                 direction |= 0b1000;
                 if(collide)
@@ -51,7 +51,7 @@ char entity::entity_wall_collisions(const map &Map, bool collide)
                 }
             }
         }
-        if(Map.data[0][(int)(old_y_pos+height-1)/Map.grid_size][(int)try_x_pos/Map.grid_size]&0b0001 && !(direction&0b1000))
+        if(Map.get_data((int)try_x_pos/Map.grid_size, (int)(old_y_pos+height-1)/Map.grid_size, 0)&0b0001 && !(direction&0b1000))
         {
             direction |= 0b1000;
             if(collide)
@@ -72,7 +72,7 @@ char entity::entity_wall_collisions(const map &Map, bool collide)
         }
         for(try_y_pos = old_y_pos; try_y_pos<y_pos+height-1 && !(direction&0b0001); try_y_pos+=Map.grid_size)
         {
-            if(Map.data[0][(int)try_y_pos/Map.grid_size][(int)(try_x_pos)/Map.grid_size]&0b1000)
+            if(Map.get_data((int)(try_x_pos)/Map.grid_size, (int)try_y_pos/Map.grid_size, 0)&0b1000)
             {
                 direction |= 0b0001;
                 if(collide)
@@ -82,7 +82,7 @@ char entity::entity_wall_collisions(const map &Map, bool collide)
                 }
             }
         } 
-        if(Map.data[0][(int)(old_y_pos+height-1)/Map.grid_size][(int)(try_x_pos)/Map.grid_size]&0b1000 && !(direction&0b0001))
+        if(Map.get_data((int)(try_x_pos)/Map.grid_size, (int)(old_y_pos+height-1)/Map.grid_size, 0)&0b1000 && !(direction&0b0001))
         {
             direction |= 0b0001;
             if(collide)
@@ -104,7 +104,7 @@ char entity::entity_wall_collisions(const map &Map, bool collide)
         }
         for(try_x_pos = old_x_pos; try_x_pos<x_pos+width-1 && !(direction&0b0100); try_x_pos+=Map.grid_size)
         {
-            if(Map.data[0][(int)try_y_pos/Map.grid_size][(int)try_x_pos/Map.grid_size]&0b0010)
+            if(Map.get_data((int)try_x_pos/Map.grid_size, (int)try_y_pos/Map.grid_size, 0)&0b0010)
             {
                 direction |= 0b0100;
                 if(collide)
@@ -114,7 +114,7 @@ char entity::entity_wall_collisions(const map &Map, bool collide)
                 }
             }
         }
-        if(Map.data[0][(int)try_y_pos/Map.grid_size][(int)(old_x_pos+width-1)/Map.grid_size]&0b0010 && !(direction&0b0100))
+        if(Map.get_data((int)(old_x_pos+width-1)/Map.grid_size, (int)try_y_pos/Map.grid_size, 0)&0b0010 && !(direction&0b0100))
         {
             direction |= 0b0100;
             if(collide)
@@ -135,7 +135,7 @@ char entity::entity_wall_collisions(const map &Map, bool collide)
         }
         for(try_x_pos = old_x_pos; try_x_pos<x_pos+width-1 && !(direction&0b0010); try_x_pos+=Map.grid_size)
         {
-            if(Map.data[0][(int)try_y_pos/Map.grid_size][(int)try_x_pos/Map.grid_size]&0b0100)
+            if(Map.get_data((int)try_x_pos/Map.grid_size, (int)try_y_pos/Map.grid_size, 0)&0b0100)
             {
                 direction |= 0b0010;
                 if(collide)
@@ -145,7 +145,7 @@ char entity::entity_wall_collisions(const map &Map, bool collide)
                 }
             }
         } 
-        if(Map.data[0][(int)(try_y_pos)/Map.grid_size][(int)(old_x_pos+width-1)/Map.grid_size]&0b0100 && !(direction&0b0010))
+        if(Map.get_data((int)(old_x_pos+width-1)/Map.grid_size, (int)(try_y_pos)/Map.grid_size, 0)&0b0100 && !(direction&0b0010))
         {
             direction |= 0b0010;
             if(collide)

@@ -12,7 +12,6 @@ int file_manager::load_var(const char* var, FILE *file)
     char buff[255];
     char *arg;
     rewind(file);
-    rewind(file);
     while(!feof(file))
     {
         fgets(buff, 255, file);
@@ -32,7 +31,6 @@ SDL_Keycode file_manager::load_key(const char* var, FILE *file)
 {
     char buff[255];
     char *arg;
-    rewind(file);
     rewind(file);
     while(!feof(file))
     {
@@ -68,42 +66,4 @@ void file_manager::load_settings(settings &Settings)
     Settings.key_shoot = load_key("key_shoot", settingsCFG);
     //close file
     fclose(settingsCFG);
-}
-
-void file_manager::load_map(map &Map)
-{
-    //open file
-    SDL_RWops* file = SDL_RWFromFile(Map.file_name, "rb");
-    //read data
-    for(int l=0; l<Map.layers; l++)
-    {
-        for(int y=0; y<Map.height; y++)
-        {
-            for(int x=0; x<Map.width; x++)
-            {
-                Map.data[l][y][x] = SDL_ReadU8(file);
-            }
-        }
-    }
-    //close file
-    SDL_RWclose(file);
-}
-
-void file_manager::save_map(const map &Map)
-{
-    //open file
-    SDL_RWops* file = SDL_RWFromFile(Map.file_name, "wb");
-    //write data
-    for(int l=0; l<Map.layers; l++)
-    {
-        for(int y=0; y<Map.height; y++)
-        {
-            for(int x=0; x<Map.width; x++)
-            {
-                SDL_WriteU8(file, Map.data[l][y][x]);
-            }
-        }
-    }
-    //close file
-    SDL_RWclose(file);
 }

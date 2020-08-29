@@ -21,17 +21,6 @@ struct settings
     SDL_Keycode key_shoot = SDLK_z;
 };
 
-//TODO - Make maps dynamic
-struct map
-{
-    const char* file_name = "assets/world.map";
-    static const int width = 800;
-    static const int height = 338;
-    static const int layers = 3;
-    static const int grid_size = 16;
-    char data[layers][height][width] = {{{0}}};
-};
-
 //loads text files
 class file_manager
 {
@@ -41,12 +30,6 @@ private:
 public:
     //Loads variables into Settings from Settings.file_name
     void load_settings(settings &Settings);
-
-    //Loads data into Map from Map.file_name
-    void load_map(map &Map);
-
-    //Saves data frome Map into Map.file_name
-    void save_map(const map &Map);
 };
 
 #endif
