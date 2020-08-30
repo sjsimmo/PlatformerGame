@@ -18,7 +18,7 @@ TODO:
 - gameplay: bigger map, more entities
 
 Map format things to add:
-- backgorund indexing ???
+- background indexing ???
 - texture pack naming ???
 - number of entities ???
 - entity ids ???

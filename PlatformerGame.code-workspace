@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "Platformer"
+		},
+		{
+			"path": "WorldEditor"
+		}
+	],
+	"settings": {}
+}

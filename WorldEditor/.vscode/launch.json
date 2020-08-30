@@ -8,7 +8,7 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/platformer.exe",
+            "program": "${workspaceFolder}/world_editor.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
