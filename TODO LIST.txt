@@ -1,6 +1,6 @@
 TODO:
 - file manager: save/load game state
-- graphics: multiple background support
+- graphics: multiple background support - perhaps reimplement as entities?
 - graphics: individual texture packs for layers
 - sound effects: is that even a thing?
 - physical layer: add support for things that aren't walls
@@ -8,7 +8,6 @@ TODO:
 - entity: entity-entity interaction/collision detection
 - entity: local/global entity spawn/despawning
 - player: better physics
-- map editor: support for new map format
 - map editor: texture pallete
 - map editor: toggle views
 - map editor: cleanup code mess
@@ -27,6 +26,6 @@ Map format things to add:
 
 How to update repository:
  1. git add .                                       #adds new files to local repository
- 2. git commit -m "INSERT COMMIT MESSSAGE HERE"     #creates commit
+ 2. git commit -m "INSERT COMMIT MESSSAGE HERE"     #creates local commit
  3. git pull origin master                          #checks/gets changes made to the global repository
  4. git push origin master                          #updates the global repository to local commit
