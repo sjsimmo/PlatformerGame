@@ -10,6 +10,7 @@ erase on active layer:  right mouse button
 
 //Dependencies
 #include "file_manager.h"
+#include "map.h"
 #include "events.h"
 #include "graphics.h"
 #include "entity.h"
@@ -33,7 +34,7 @@ int main(int argc, char* args[])
 
     //Initialise objects and load game
     File_manager.load_settings(Settings);
-    File_manager.load_map(Map);
+    Map.load("assets/world.map");
     Graphics.init(Settings);
     Graphics.load_textures(Map);
     Graphics.update_background();
@@ -54,7 +55,7 @@ int main(int argc, char* args[])
         if(Events.s_pressed)
         {
             printf("SAVING MAP...\n");
-            File_manager.save_map(Map);
+            Map.save("assets/world.map");
             printf("MAP SAVED!\n");
         }
 
@@ -66,11 +67,11 @@ int main(int argc, char* args[])
         //Draw & Erase
         if(Events.mouse_left_held)
         {
-            Map.data[Events.active_layer][(Events.mouse_y/2+Graphics.camera_y_pos)/Map.grid_size][(Events.mouse_x/2+Graphics.camera_x_pos)/Map.grid_size] = Events.scroll;
+            Map.set_data((Events.mouse_x/2+Graphics.camera_x_pos)/Map.grid_size, (Events.mouse_y/2+Graphics.camera_y_pos)/Map.grid_size, Events.active_layer, Events.scroll);
         }
         else if(Events.mouse_right_held)
         {
-            Map.data[Events.active_layer][(Events.mouse_y/2+Graphics.camera_y_pos)/Map.grid_size][(Events.mouse_x/2+Graphics.camera_x_pos)/Map.grid_size] = 0x00;
+            Map.set_data((Events.mouse_x/2+Graphics.camera_x_pos)/Map.grid_size, (Events.mouse_y/2+Graphics.camera_y_pos)/Map.grid_size, Events.active_layer, 0x00);
             Pointer.texture = 0x00;
         }
 

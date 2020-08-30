@@ -18,7 +18,6 @@ public:
     int texture;
     void init();
     void move(double dt);
-    char wall_collisions(map Map, bool collide); //call after move to see if collision occured
 };
 
 #endif
