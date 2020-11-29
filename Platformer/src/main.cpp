@@ -87,6 +87,7 @@ int main(int argc, char* args[])
     {
         delete Entity[i];
     }
+    Entity.clear();
     Graphics.cleanup();
 
     return 0;

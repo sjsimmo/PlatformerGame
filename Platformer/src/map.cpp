@@ -5,11 +5,8 @@
 
 map::map()
 {
-    data = new char[width*height*layers];
-    for(int i=0; i<width*height*layers; i++)
-    {
-        data[i]=0;
-    }
+    data = new char[1];
+    data[0]=0;
 }
 
 void map::load(const char* file_name)

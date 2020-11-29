@@ -1,4 +1,6 @@
 TODO:
+- fix the unsmooth movement with linear time interprolation:  https://gafferongames.com/post/fix_your_timestep/
+
 - file manager: save/load game state
 - graphics: multiple background support - perhaps reimplement as entities?
 - graphics: individual texture packs for layers
